@@ -1,4 +1,4 @@
-id: software-security
+id: system-security
 
 name: Fall 2023 - 软件安全
 
@@ -13,33 +13,84 @@ award:
 comparator: 9998
 
 modules:
-  - id: simple-demo
-    name: Simple Demo
+  - id: setuid-backdoor
+    name: SetUID Backdoor
     description: |
-      本模块包含一些简单的演示关卡，帮助学生更快地熟悉当前平台[https://pwn.hust.college](https://pwn.hust.college)。  
-      **注：为了更有效地解决这些挑战关卡，首先运行 /challenge 目录下的挑战题目，随后根据提示完成挑战。**
+      SUID 允许任何拥有文件执行权限的用户，以当前文件所属者（通常是 root）的权限执行该文件。  
+      **注：为了更有效地解决这些挑战关卡，你首先需要运行 /challenge 目录下的挑战题目，随后根据提示完成挑战。**
       \
       \
       **关卡等级分布：**
-      - Level 1.0 - 直接读取 /flag，并将其打印出来（Python）
-      - Level 1.1 - 直接读取 /flag，并将其打印出来（C）
+      - Level 1.0 - 利用设置了 SUID 的 /usr/bin/cat 命令读取 /flag
+      - Level 1.1 - 利用设置了 SUID 的 /usr/bin/vim 命令读取 /flag 
+      - Level 1.2 - 利用设置了 SUID 的 /usr/bin/hexedit 命令读取 /flag
+      - Level 2.0 - 理解 /usr/bin/rev 功能，并通过设置了 SUID 的该命令获取 /flag 
+      - Level 2.1 - 理解 /usr/bin/gzip 功能，并通过设置了 SUID 的该命令获取 /flag 
+      - Level 2.2 - 理解 /usr/bin/date 功能，并通过设置了 SUID 的该命令获取 /flag 
+      - Level 3.0 - 学习 /usr/bin/chmod 命令设置文件权限，并通过设置了 SUID 的该命令获取 /flag 
+      - Level 3.1 - 学习 /usr/bin/chown 命令设置文件权限，并通过设置了 SUID 的该命令获取 /flag 
+      - Level 3.2 - 学习 /usr/bin/cp 命令设置文件权限，并通过设置了 SUID 的该命令获取 /flag 
+      - Level 4.0 - 学习 /usr/bin/python 解释器的语法，并编程实现获取 /flag 
+      - Level 4.1 - 学习 /usr/bin/perl 解释器的语法，并编程实现获取 /flag 
+      - Level 4.2 - 学习 /usr/bin/ruby 解释器的语法，并编程实现获取 /flag
 
     challenges:
       - id: level-1-0
         name: Level 1.0
-        description: "本关卡直接读取 /flag，并将其打印出来。"
+        description: "本关卡设置一些实用程序(如，/usr/bin/cat)，帮助读取 /flag。"
 
       - id: level-1-1
         name: Level 1.1
-        description: "本关卡直接读取 /flag，并将其打印出来。"
+        description: "本关卡设置一些实用程序(如，/usr/bin/vim)，帮助读取 /flag。"
+
+      - id: level-1-2
+        name: Level 1.2
+        description: "本关卡设置一些实用程序(如，/usr/bin/hexedit)，帮助读取 /flag。"
+
+      - id: level-2-0
+        name: Level 2.0
+        description: "本关卡需要理解一些实用程序(如，/usr/bin/rev)，并巧妙利用该程序获取 /flag。"
+
+      - id: level-2-1
+        name: Level 2.1
+        description: "本关卡需要理解一些实用程序(如，/usr/bin/gzip)，并巧妙利用该程序获取 /flag。"
+
+      - id: level-2-2
+        name: Level 2.2
+        description: "本关卡需要理解一些实用程序(如，/usr/bin/date)，并巧妙利用该程序获取 /flag。"
+
+      - id: level-3-0
+        name: Level 3.0
+        description: "本关卡需要通过一些实用程序(如，/usr/bin/chmod)巧妙地设置文件权限来读取 /flag。"
+
+      - id: level-3-1
+        name: Level 3.1
+        description: "本关卡需要通过一些实用程序(如，/usr/bin/chown)巧妙地设置文件权限来读取 /flag。"
+
+      - id: level-3-2
+        name: Level 3.2
+        description: "本关卡需要通过一些实用程序(如，/usr/bin/cp)巧妙地设置文件权限来读取 /flag。"
+
+      - id: level-4-0
+        name: Level 4.0
+        description: "本关卡设置一些程序解释器(如，/usr/bin/python)，并需要结合相应编程知识来读取 /flag。"
+
+      - id: level-4-1
+        name: Level 4.1
+        description: "本关卡设置一些程序解释器(如，/usr/bin/perl)，并需要结合相应编程知识来读取 /flag。"
+
+      - id: level-4-2
+        name: Level 4.2
+        description: "本关卡设置一些程序解释器(如，/usr/bin/ruby)，并需要结合相应编程知识来读取 /flag。"
 
     resources:
-      - name: "0 课程要求"
+      - name: "Linux 权限管理与SetUID"
         type: lecture
-        slides: 0-requirements
-      - name: "1 软件安全概论"
-        type: lecture
-        slides: 1-introduction
+        slides: 2-ELF
+      - name: "References"
+        type: markdown
+        content: |
+          - [Why You Can't Un-Root a Compromised Machine](https://gist.github.com/mudongliang/7b68290c2b4d5da0b7140c8b0e1827d0)
 
   - id: pwntools-tutorials
     name: Pwntools Tutorials
@@ -120,85 +171,6 @@ modules:
           - [Pwntools Documentation](https://docs.pwntools.com/en/stable/index.html)
           - [GDB Cheat Sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
 
-
-  - id: setuid-backdoor
-    name: SetUID Backdoor
-    description: |
-      SUID 允许任何拥有文件执行权限的用户，以当前文件所属者（通常是 root）的权限执行该文件。  
-      **注：为了更有效地解决这些挑战关卡，你首先需要运行 /challenge 目录下的挑战题目，随后根据提示完成挑战。**
-      \
-      \
-      **关卡等级分布：**
-      - Level 1.0 - 利用设置了 SUID 的 /usr/bin/cat 命令读取 /flag
-      - Level 1.1 - 利用设置了 SUID 的 /usr/bin/vim 命令读取 /flag 
-      - Level 1.2 - 利用设置了 SUID 的 /usr/bin/hexedit 命令读取 /flag
-      - Level 2.0 - 理解 /usr/bin/rev 功能，并通过设置了 SUID 的该命令获取 /flag 
-      - Level 2.1 - 理解 /usr/bin/gzip 功能，并通过设置了 SUID 的该命令获取 /flag 
-      - Level 2.2 - 理解 /usr/bin/date 功能，并通过设置了 SUID 的该命令获取 /flag 
-      - Level 3.0 - 学习 /usr/bin/chmod 命令设置文件权限，并通过设置了 SUID 的该命令获取 /flag 
-      - Level 3.1 - 学习 /usr/bin/chown 命令设置文件权限，并通过设置了 SUID 的该命令获取 /flag 
-      - Level 3.2 - 学习 /usr/bin/cp 命令设置文件权限，并通过设置了 SUID 的该命令获取 /flag 
-      - Level 4.0 - 学习 /usr/bin/python 解释器的语法，并编程实现获取 /flag 
-      - Level 4.1 - 学习 /usr/bin/perl 解释器的语法，并编程实现获取 /flag 
-      - Level 4.2 - 学习 /usr/bin/ruby 解释器的语法，并编程实现获取 /flag
-
-    challenges:
-      - id: level-1-0
-        name: Level 1.0
-        description: "本关卡设置一些实用程序(如，/usr/bin/cat)，帮助读取 /flag。"
-
-      - id: level-1-1
-        name: Level 1.1
-        description: "本关卡设置一些实用程序(如，/usr/bin/vim)，帮助读取 /flag。"
-
-      - id: level-1-2
-        name: Level 1.2
-        description: "本关卡设置一些实用程序(如，/usr/bin/hexedit)，帮助读取 /flag。"
-
-      - id: level-2-0
-        name: Level 2.0
-        description: "本关卡需要理解一些实用程序(如，/usr/bin/rev)，并巧妙利用该程序获取 /flag。"
-
-      - id: level-2-1
-        name: Level 2.1
-        description: "本关卡需要理解一些实用程序(如，/usr/bin/gzip)，并巧妙利用该程序获取 /flag。"
-
-      - id: level-2-2
-        name: Level 2.2
-        description: "本关卡需要理解一些实用程序(如，/usr/bin/date)，并巧妙利用该程序获取 /flag。"
-
-      - id: level-3-0
-        name: Level 3.0
-        description: "本关卡需要通过一些实用程序(如，/usr/bin/chmod)巧妙地设置文件权限来读取 /flag。"
-
-      - id: level-3-1
-        name: Level 3.1
-        description: "本关卡需要通过一些实用程序(如，/usr/bin/chown)巧妙地设置文件权限来读取 /flag。"
-
-      - id: level-3-2
-        name: Level 3.2
-        description: "本关卡需要通过一些实用程序(如，/usr/bin/cp)巧妙地设置文件权限来读取 /flag。"
-
-      - id: level-4-0
-        name: Level 4.0
-        description: "本关卡设置一些程序解释器(如，/usr/bin/python)，并需要结合相应编程知识来读取 /flag。"
-
-      - id: level-4-1
-        name: Level 4.1
-        description: "本关卡设置一些程序解释器(如，/usr/bin/perl)，并需要结合相应编程知识来读取 /flag。"
-
-      - id: level-4-2
-        name: Level 4.2
-        description: "本关卡设置一些程序解释器(如，/usr/bin/ruby)，并需要结合相应编程知识来读取 /flag。"
-
-    resources:
-      - name: "Linux 权限管理与SetUID"
-        type: lecture
-        slides: 2-ELF
-      - name: "References"
-        type: markdown
-        content: |
-          - [Why You Can't Un-Root a Compromised Machine](https://gist.github.com/mudongliang/7b68290c2b4d5da0b7140c8b0e1827d0)
 
 
   - id: elf-crackme
