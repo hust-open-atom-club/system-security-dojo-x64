@@ -5,12 +5,13 @@ name: Fall 2024 - 系统安全
 type: course
 
 award:
-  emoji: Forest_Badge
+  emoji: 0001_Bulbasaur
 
 comparator: 9995
 
 modules:
   - id: setuid-backdoor
+    icon: 0016_Pidgey
     name: SetUID Backdoor
     description: |
       SUID 允许任何拥有文件执行权限的用户，以当前文件所属者（通常是 root）的权限执行该文件。  
@@ -90,6 +91,7 @@ modules:
           - [Why You Can't Un-Root a Compromised Machine](https://gist.github.com/mudongliang/7b68290c2b4d5da0b7140c8b0e1827d0)
 
   - id: pwntools-tutorials
+    icon: 0010_Caterpie
     name: Pwntools Tutorials
     description: |
       Pwntools 是一个工具包（包含各种好用的小工具）与软件库，旨在尽可能简化 CTF 比赛的渗透攻击过程，同时尽可能攻击代码的可读性。  
@@ -168,9 +170,8 @@ modules:
           - [Pwntools Documentation](https://docs.pwntools.com/en/stable/index.html)
           - [GDB Cheat Sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
 
-
-
   - id: elf-crackme
+    icon: 0017_Pidgeotto
     name: ELF CrakeMe
     description: |
       学习并修改 ELF 可执行文件格式  
@@ -231,6 +232,7 @@ modules:
 
 
   - id: buffer-overflow
+    icon: 0011_Metapod
     name: Buffer Overflow
     description: |
       利用缓冲区溢出漏洞，可以在栈、全局、堆等内存区域上输入精心构造的数据载荷（即，Payload），覆盖关键数据（如，局部变量，函数指针，返回地址等）。  
@@ -297,6 +299,7 @@ modules:
           - [Use pwntools for your exploits](https://mudongliang.github.io/2021/05/11/use-pwntools-for-your-exploits.html)
 
   - id: integer-overflow
+    icon: 0018_Pidgeot
     name: Integer Overflow
     description: |
       整数溢出出现于数值无法被对应的数据类型所表示，通常，整数溢出可能导致缓冲区溢出。  
@@ -324,6 +327,7 @@ modules:
         description: "本关卡利用整数溢出中的计算溢出，通过检查后读取 /flag。"
 
   - id: use-after-free
+    icon: 0012_Butterfree
     name: Use After Free
     description: |
       释放后使用这一漏洞类型属于实践类内存错误，在一个对象被释放后之后重新使用导致。此处还包含 Invalid Free 和 Double Free。  
@@ -343,6 +347,7 @@ modules:
         description: "本关卡需掌握 ptmalloc2 tcache bin 分配堆内存的基本原理，利用释放后使用漏洞覆盖堆上关键变量，泄露堆上 /flag 的内容"
 
   - id: other-vulnerabilities
+    icon: 0021_Spearow
     name: Other Vulnerabilities
     description: |
       学习一些其他安全漏洞，如格式化字符串，未初始化漏洞，信息泄露漏洞。  
@@ -363,6 +368,7 @@ modules:
                
 
   - id: shellcode-injection
+    icon: 0002_Ivysaur
     name: Shellcode Injection
     description: |
       通过注入精心构造的 shellcode，获得程序原有行为以外的破坏性能力。  
@@ -398,6 +404,7 @@ modules:
         description: "本关卡需利用栈溢出漏洞，注入并执行 shellcode 来读取 /flag。"
 
   - id: return-oriented-programming
+    icon: 0003_Venusaur
     name: Return Oriented Programming
     description: |
       ROP(Return Oriented Programming) 通过控制程序栈上数据串连 gadgets（如，末尾为 ret 指令的微小代码片段）来达到图灵完备的功能。  
