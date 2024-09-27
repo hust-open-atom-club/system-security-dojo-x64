@@ -1,0 +1,50 @@
+name: Pwntools 使用入门
+
+challenges:
+  - id: level-1-0
+    name: Level 1.0
+
+  - id: level-1-1
+    name: Level 1.1
+
+  - id: level-2-0
+    name: Level 2.0
+
+  - id: level-2-1
+    name: Level 2.1
+
+  - id: level-2-2
+    name: Level 2.2
+
+  - id: level-2-3
+    name: Level 2.3
+
+  - id: level-2-4
+    name: Level 2.4
+
+  - id: level-2-5
+    name: Level 2.5
+
+  - id: level-2-6
+    name: Level 2.6
+
+  - id: level-3-0
+    name: Level 3.0
+
+resources:
+  - name: "Pwntools 使用教程"
+    type: lecture
+    video: "405113607"
+    playlist: "BV1oG411o7A4"
+    slides: 2-pwntools
+  - name: "gdb 结合 pwntools 调试教程"
+    type: lecture
+    video: "532863345"
+    playlist: "BV1Du411N7c9"
+    slides: 2-gdb
+  - name: "References"
+    type: markdown
+    content: |
+      - [Pwntools Tutorials](https://github.com/Gallopsled/pwntools-tutorial)
+      - [Pwntools Documentation](https://docs.pwntools.com/en/stable/index.html)
+      - [GDB Cheat Sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)

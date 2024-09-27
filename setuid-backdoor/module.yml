@@ -38,6 +38,12 @@ challenges:
     name: Level 4.2
 
 resources:
+  - name: "0 课程要求"
+    type: lecture
+    slides: 0-requirements
+#  - name: "1 软件安全概论"
+#    type: lecture
+#    slides: 1-introduction
   - name: "Linux 权限管理与SetUID"
     type: lecture
     slides: 2-ELF
