@@ -2,7 +2,7 @@
 import hashlib
 import binascii
 
-file_path = "./elf-crackme-level2.2"
+file_path = "/challenge/elf-crackme-level2.2"
 def read_flag():
     with open('/flag', 'r') as file:
         file_contents = file.read()

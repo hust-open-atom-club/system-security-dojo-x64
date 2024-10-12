@@ -3,7 +3,7 @@ import hashlib
 import binascii
 
 
-file_path = "./elf-crackme-level2.0"
+file_path = "/challenge/elf-crackme-level2.0"
 
 def calculate_md5(data):
     md5_hash = hashlib.md5(data).hexdigest()

@@ -1,6 +1,6 @@
 #!/opt/pwn.college/python
 
-file_path = "./elf-crackme-level1.1"
+file_path = "/challenge/elf-crackme-level1.1"
 
 
 def patch():

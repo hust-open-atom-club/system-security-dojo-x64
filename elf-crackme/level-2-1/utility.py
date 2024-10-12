@@ -3,7 +3,7 @@ import hashlib
 import binascii
 
 
-file_path = "./elf-crackme-level2.1"
+file_path = "/challenge/elf-crackme-level2.1"
 
 def calculate_md5(data):
     md5_hash = hashlib.md5(data).hexdigest()
@@ -14,7 +14,6 @@ def md5_check(hex_string):
     binary_data = binascii.unhexlify(hex_string)
     md5_result = calculate_md5(binary_data)
     return md5_result
-    print("MD5 Hash:", md5_result)
 
 def patch():
     try:

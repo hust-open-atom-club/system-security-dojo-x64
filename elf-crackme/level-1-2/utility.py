@@ -1,5 +1,5 @@
 #!/opt/pwn.college/python
-file_path = "./elf-crackme-level1.2"
+file_path = "/challenge/elf-crackme-level1.2"
 
 def read_flag():
     with open('/flag', 'r') as file:

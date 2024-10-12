@@ -1,7 +1,7 @@
 #!/opt/pwn.college/python
 
 def main():
-    file_path = "./elf-crackme-level3.0"
+    file_path = "/challenge/elf-crackme-level3.0"
 
     try:
         with open(file_path, "r+b") as file:

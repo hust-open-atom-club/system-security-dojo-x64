@@ -2,7 +2,7 @@
 
 
 def main():
-    file_path = "./elf-crackme-level3.1"
+    file_path = "/challenge/elf-crackme-level3.1"
 
     try:
         with open(file_path, "r+b") as file:
