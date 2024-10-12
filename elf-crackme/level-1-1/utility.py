@@ -2,24 +2,33 @@
 
 file_path = "./elf-crackme-level1.1"
 
+
 def patch():
     try:
         with open(file_path, "r+b") as file:
-            position = int(input("[+] Please enter the position to modify (in hexadecimal, e.g., 0x1000): "), 16)
-            new_data = int(input("[+] Please enter the new byte data (in hexadecimal, e.g., 01): "), 16)
-            
+            position = int(
+                input(
+                    "[+] Please enter the position to modify (in hexadecimal, e.g., 0x1000): "
+                ),
+                16,
+            )
+            new_data = input(
+                "[+] Please enter the new data in seperate bytes (in hexadecimal, e.g., 01 be ef): "
+            )
+
             file.seek(position)
-            file.write(bytes([new_data]))
-            
+            file.write(bytes.fromhex(new_data))
+
         print("[+] Modification completed!")
     except FileNotFoundError:
         print("[-] Unable to open the file")
     except Exception as e:
         print("[-] An error occurred:", e)
 
+
 def check():
     try:
-         with open(file_path, "rb") as file:
+        with open(file_path, "rb") as file:
             position = 0x48
             length = 24
             file.seek(position)
@@ -30,26 +39,29 @@ def check():
                 print("[+] Repair successful")
             else:
                 print("[-] Repair failed")
- 
+
     except Exception as e:
         print("[-] An error occurred:", e)
+
 
 if __name__ == "__main__":
     print("###")
     print("### Welcome to ./elf-crackme-level1.1!")
     print("###")
     print("")
-    print("We have modified certain Offset, VirtAddr, and PhysAddr in the Program Header.")
+    print(
+        "We have modified certain Offset, VirtAddr, and PhysAddr in the Program Header."
+    )
     print("Please try to restore them. After restoring, execute to obtain the flag.")
-    
+
     while True:
         print("Select the action you want to perform:")
         print("1. Modify the ELF file")
         print("2. Check the repaired content")
         print("3. Exit")
-        
+
         choice = input("Enter the option number: ")
-        
+
         if choice == "1":
             patch()
         elif choice == "2":
