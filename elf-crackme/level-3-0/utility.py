@@ -1,5 +1,6 @@
 #!/opt/pwn.college/python
 
+
 def main():
     file_path = "/challenge/elf-crackme-level3.0"
 
@@ -24,11 +25,14 @@ def main():
     except Exception as e:
         print("[-] An error occurred:", e)
 
+
 if __name__ == "__main__":
     print("###")
     print("### Welcome to ./elf-crackme-level3.0!")
     print("###")
     print("")
     print("We have provided a binary with a corrupted PLT table.")
-    print("Please follow the PLT table jump order, use the script, and execute it to obtain the flag.")
+    print(
+        "Please follow the PLT table jump order, use the script, and execute it to obtain the flag."
+    )
     main()
