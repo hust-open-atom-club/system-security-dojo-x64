@@ -4,8 +4,8 @@
 
 void read_flag()
 {
-    char *command = "cat";
-    char *args[] = {"cat", "/flag", NULL};
+    char *command = "/bin/cat";
+    char *args[] = {"/bin/cat", "/flag", NULL};
     puts("What address does plt jump to for the second time?");
     perror("\n");
     if (execve(command, args, NULL) == -1)
