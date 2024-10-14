@@ -1,11 +1,11 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main(){
+int main()
+{
 	puts("==================");
 	puts("Can you crack the hash of my program.text segment?");
 	__asm__ __volatile__(
-                "nop;"
 		"nop;"
-        );
+		"nop;");
 	return 0;
 }
