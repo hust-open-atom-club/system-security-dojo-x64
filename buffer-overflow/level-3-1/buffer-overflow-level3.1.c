@@ -25,19 +25,21 @@ void read_flag()
 	FILE *file;
 
 	file = fopen("/flag", "r");
-	if (file == NULL) {
+	if (file == NULL)
+	{
 		printf("[-] cannot open\n");
 		exit(-1);
 	}
 
-	while (fgets(flag, sizeof(flag), file) != NULL) {
+	while (fgets(flag, sizeof(flag), file) != NULL)
+	{
 		puts(flag);
 	}
 
 	fclose(file);
 }
 
-void input_message(char * name) 
+void input_message(char *name)
 {
 	char buf[0x100];
 
@@ -51,10 +53,10 @@ void input_message(char * name)
 int main()
 {
 	char name[0x20];
-        print_desc();
+	print_desc();
 	puts("Give me your name:");
 	read(0, name, 0x20);
-        input_message(name);
+	input_message(name);
 
 	return 0;
 }
