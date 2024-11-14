@@ -140,7 +140,7 @@ void menu()
         puts("1. Create Notebook");
         puts("2. Delete Notebook");
         puts("3. Edit   Notebook");
-		puts("4. Show   Notebook");
+	    puts("4. Show   Notebook");
         puts("5. Give Up And Cry");
         puts("Choice >> ");
 }
@@ -151,8 +151,8 @@ int main()
 
         init();
         puts("dangdang777 has a magic notebook."); 
-		puts("how can you use it to get flag?");
-		read_flag();
+	    puts("how can you use it to get flag?");
+	    read_flag();
 
         while (flag) {
                 menu();
@@ -168,7 +168,7 @@ int main()
                 case 3:
                         edit_notebook();
                         break;
-				case 4:
+		        case 4:
                         show_notebook();
                         break;
                 case 5:
