@@ -5,6 +5,7 @@
 #include <string.h>
 
 #define FLAG_LEN 0x40
+#define LEN 0x10
 
 size_t * notebooks[0x10];
 
@@ -60,13 +61,13 @@ void create_notebook()
 	}
 	
 	puts("Input your notebook content:");
-	book = malloc(FLAG_LEN);
+	book = malloc(LEN);
 	if (book == NULL) {
 		puts("malloc error");
 		exit(-1);
 	}
 
-	read(0, book, FLAG_LEN);
+	read(0, book, LEN);
 	notebooks[idx] = book;
 	puts("Done!");
 }
@@ -139,7 +140,7 @@ void menu()
         puts("1. Create Notebook");
         puts("2. Delete Notebook");
         puts("3. Edit   Notebook");
-	puts("4. Show   Notebook");
+		puts("4. Show   Notebook");
         puts("5. Give Up And Cry");
         puts("Choice >> ");
 }
@@ -150,8 +151,8 @@ int main()
 
         init();
         puts("dangdang777 has a magic notebook."); 
-	puts("how can you use it to get flag?");
-	read_flag();
+		puts("how can you use it to get flag?");
+		read_flag();
 
         while (flag) {
                 menu();
@@ -167,7 +168,7 @@ int main()
                 case 3:
                         edit_notebook();
                         break;
-		case 4:
+				case 4:
                         show_notebook();
                         break;
                 case 5:
